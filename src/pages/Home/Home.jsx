@@ -22,7 +22,7 @@ const Home = () => {
                 alt="logo"
               />
 
-              <Link allsuits={item} key={idx} to={item.routeName}>
+              <Link state={item} key={idx} to={item.routeName}>
                 <p> {item.title} </p>
               </Link>
             </div>
