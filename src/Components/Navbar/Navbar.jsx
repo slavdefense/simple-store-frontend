@@ -6,10 +6,10 @@ const Navbar = ({ navItems }) => {
     <div>
       <div className={styles.nav}>
         <img className={styles.logo} src="./logo-scout.png" alt="logo" />
-        {navItems.map((item) => {
+        {navItems.map((item,idx) => {
           return (
-            <Link className={styles.link} to={item.url}>
-              <p>{item.name}</p>
+            <Link key={idx} className={styles.link} to={item.url}>
+              <p key = {idx}> {item.name} </p>
             </Link>
           );
         })}

@@ -3,6 +3,7 @@ import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
+import Suites from "./pages/Suits/Suits";
 
 function App() {
   const [navItems] = useState([
@@ -26,6 +27,7 @@ function App() {
 
       <Routes>
         <Route path="/home" element={<Home />} />
+        <Route path="/home/suits" element = {<Suites/>}/>
       </Routes>
     </div>
   );
