@@ -6,6 +6,7 @@ const Cart = ({ allCartData, toggler }) => {
   console.log(allCartData);
 
   const [total, setTotal] = useState(0);
+  const [itemTotal,setItemTotal] = useState([])
 
   useEffect(() => {
     let sum = 0;
@@ -17,30 +18,54 @@ const Cart = ({ allCartData, toggler }) => {
 
   console.log(total);
 
-  // let myarr = []
-  // let myCartArray = {}
-  // for(let item of allCartData){
-  //   if(myCartArray[item.name]){
-  //     myarr.push(myCartArray[item.name]++)
-  //   }
-  //     else{
-  //      myarr.push(myCartArray[item.name]=0)
-  //     }
 
-  // }
-  // console.log(myarr)
+
+useEffect(()=>{
+  let myArr = []
+ 
+  let myCartArray = {}
+  for(let item of allCartData){
+    if(myCartArray[item.name]){
+      myCartArray[item.name]=myCartArray[item.name]+1
+    }
+      else{
+       myCartArray[item.name]=1
+      }
+
+  }
+  console.log(myCartArray)
+
+  for(let item in myCartArray){
+
+    myArr.push(`  Item:${item}    Total:${myCartArray[item]}`)
+
+    // JSON.parse(`{“name”: “${item.assignedTo.name}“, “value”: ${item.createdAt.slice(0,3)}}`)
+
+  }
+  setItemTotal(myArr)
+
+},[allCartData])
+
+console.log(itemTotal)
+
+
+  
 
   return (
     <div className="cartContainer">
       {toggler ? (
         <div className={styles.toggler}>
-          <h3>Cart Component</h3>
-          {allCartData
-            .filter((item) => item.price !== 0)
+          <h3>Checkout</h3>
+          {itemTotal
+            .filter((item) => item.Total !== 0)
             .map((item) => {
+
+                
+
+
               return (
                 <h5>
-                  {item.name} ${item.price}:
+                  {item} {item.price}:
                 </h5>
               );
             })}

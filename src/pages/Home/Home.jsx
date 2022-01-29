@@ -5,7 +5,7 @@ import SHOP_DATA from "../Shoppage/ShopData";
 import styles from "./Home.module.css";
 
 const Home = () => {
-  const [shopData, setShopData] = useState(SHOP_DATA);
+  const [shopData] = useState(SHOP_DATA);
 
   console.log(SHOP_DATA);
   return (
@@ -18,12 +18,12 @@ const Home = () => {
             <div>
               <img
                 className={styles.imgPreview}
-                src={item.items[0].imageUrl}
+                src={item.items[3].imageUrl}
                 alt="logo"
               />
 
               <Link state={item} key={idx} to={item.routeName}>
-                <p> {item.title} </p>
+                <p className={styles.caption}> {item.title} </p>
               </Link>
             </div>
           );

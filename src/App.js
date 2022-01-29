@@ -14,14 +14,7 @@ function App() {
       name: "Home",
       url: "/home",
     },
-    {
-      name: "Shop",
-      url: "/shop",
-    },
-    {
-      name: "Cart",
-      url: "/shop",
-    },
+  
   ]);
 
 
