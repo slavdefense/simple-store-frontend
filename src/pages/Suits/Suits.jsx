@@ -34,13 +34,13 @@ const Suites = ({liftingCartHandler}) => {
       <section className={styles.containerSuits}>
         {shoppingList.map((item) => {
           return (
-            <div>
+            <div className={styles.containerdiv}>
               <h1>
                 {item.name} {item.price}
               </h1>
               <img src={item.imageUrl} alt="images" />
 
-              <button
+              <button className={styles.buttonhover}
                 onClick={() => {
                   clickHandler(item.price,item.name);
                 }}

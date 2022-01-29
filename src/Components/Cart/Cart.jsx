@@ -6,7 +6,7 @@ const Cart = ({ allCartData, toggler }) => {
   console.log(allCartData);
 
   const [total, setTotal] = useState(0);
-  const [itemTotal,setItemTotal] = useState([])
+  const [itemTotal, setItemTotal] = useState([]);
 
   useEffect(() => {
     let sum = 0;
@@ -18,38 +18,26 @@ const Cart = ({ allCartData, toggler }) => {
 
   console.log(total);
 
+  useEffect(() => {
+    let myArr = [];
 
-
-useEffect(()=>{
-  let myArr = []
- 
-  let myCartArray = {}
-  for(let item of allCartData){
-    if(myCartArray[item.name]){
-      myCartArray[item.name]=myCartArray[item.name]+1
-    }
-      else{
-       myCartArray[item.name]=1
+    let myCartArray = {};
+    for (let item of allCartData) {
+      if (myCartArray[item.name]) {
+        myCartArray[item.name] = myCartArray[item.name] + 1;
+      } else {
+        myCartArray[item.name] = 1;
       }
+    }
+    console.log(myCartArray);
 
-  }
-  console.log(myCartArray)
+    for (let item in myCartArray) {
+      myArr.push(`  Item:${item}    Total:${myCartArray[item]}`);
+    }
+    setItemTotal(myArr);
+  }, [allCartData]);
 
-  for(let item in myCartArray){
-
-    myArr.push(`  Item:${item}    Total:${myCartArray[item]}`)
-
-    // JSON.parse(`{“name”: “${item.assignedTo.name}“, “value”: ${item.createdAt.slice(0,3)}}`)
-
-  }
-  setItemTotal(myArr)
-
-},[allCartData])
-
-console.log(itemTotal)
-
-
-  
+  console.log(itemTotal);
 
   return (
     <div className="cartContainer">
@@ -59,10 +47,6 @@ console.log(itemTotal)
           {itemTotal
             .filter((item) => item.Total !== 0)
             .map((item) => {
-
-                
-
-
               return (
                 <h5>
                   {item} {item.price}:

@@ -31,7 +31,15 @@ const Navbar = ({ navItems, allCartData }) => {
         <form action="#">
           <Cart toggler={toggler} allCartData={allCartData}></Cart>
 
-          <button onClick={handleCartClick}>Show Items</button>
+          {
+            !toggler?
+            <button className={styles.showcartbutton} onClick={handleCartClick}>Show Items</button>
+            :
+            <button className={styles.showcartbutton} onClick={handleCartClick}>Hide Items</button>
+
+          }
+
+          
         </form>
       </div>
     </div>
