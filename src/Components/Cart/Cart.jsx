@@ -43,7 +43,7 @@ const Cart = ({ allCartData, toggler }) => {
     <div className="cartContainer">
       {toggler ? (
         <div className={styles.toggler}>
-          <h3>Checkout</h3>
+          <p>Checkout</p>
           {itemTotal
             .filter((item) => item.Total !== 0)
             .map((item) => {
@@ -53,7 +53,7 @@ const Cart = ({ allCartData, toggler }) => {
                 </h5>
               );
             })}
-          <h3>Your total is ${total}</h3>
+          <h3 className={styles.sumtotal}>Your total is ${total}</h3>
         </div>
       ) : (
         <h1>Cart</h1>

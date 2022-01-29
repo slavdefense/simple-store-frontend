@@ -4,7 +4,6 @@ import styles from "./Navbar.module.css";
 import Cart from "../Cart/Cart";
 
 const Navbar = ({ navItems, allCartData }) => {
-
   const [toggler, setToggler] = useState(false);
 
   const handleCartClick = (evt) => {
@@ -31,15 +30,15 @@ const Navbar = ({ navItems, allCartData }) => {
         <form action="#">
           <Cart toggler={toggler} allCartData={allCartData}></Cart>
 
-          {
-            !toggler?
-            <button className={styles.showcartbutton} onClick={handleCartClick}>Show Items</button>
-            :
-            <button className={styles.showcartbutton} onClick={handleCartClick}>Hide Items</button>
-
-          }
-
-          
+          {!toggler ? (
+            <button className={styles.showcartbutton} onClick={handleCartClick}>
+              Show Items
+            </button>
+          ) : (
+            <button className={styles.showcartbutton} onClick={handleCartClick}>
+              Hide Items
+            </button>
+          )}
         </form>
       </div>
     </div>

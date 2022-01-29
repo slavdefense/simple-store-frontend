@@ -1,23 +1,22 @@
-.containerSuits{
-  display:flex;
-  flex-wrap:wrap;
+.containerSuits {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: space-around;
 }
 
-.containerdiv{
-  display :flex;
+.containerdiv {
+  display: flex;
   flex-direction: column;
-  width:400px;
+  width: 400px;
 }
 
-.buttonhover{
-  height:2em;
-  color:red;
+.buttonhover {
+  height: 2em;
+  color: red;
   font-weight: 800;
 }
 
-
-.buttonhover:hover{
+.buttonhover:hover {
   background-color: goldenrod;
 }
