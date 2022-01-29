@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Suites from "./pages/Suits/Suits";
 
 function App() {
+
   const [navItems] = useState([
     {
       name: "Home",
@@ -21,13 +22,20 @@ function App() {
     },
   ]);
 
+  const [allCartData,setAllCartData]=useState([])
+
+const liftingCartHandler=(evt)=>{
+console.log(evt)
+setAllCartData(evt)
+}
+
   return (
     <div className="App">
-      <Navbar navItems={navItems} />
+      <Navbar allCartData={allCartData} navItems={navItems} />
 
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/home/suits" element = {<Suites/>}/>
+        <Route path="/home/suits" element = {<Suites liftingCartHandler={liftingCartHandler}/>}/>
         <Route path="/home/MensShoe" element = {<Suites/>}/>
         <Route path="/home/WomenShoe" element = {<Suites/>}/>
         <Route path="/home/mens" element = {<Suites/>}/>

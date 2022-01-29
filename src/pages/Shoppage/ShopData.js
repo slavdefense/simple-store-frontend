@@ -112,7 +112,7 @@ const SHOP_DATA = [
         id: 15,
         name: "Nike Brown High Tops",
         imageUrl: "https://i.ibb.co/fMTV342/nike-brown.png",
-        price: 160,
+        price: 170,
       },
       {
         id: 16,
