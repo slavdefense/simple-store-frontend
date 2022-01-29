@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import Cart from "../Cart/Cart";
@@ -11,7 +11,17 @@ const Navbar = ({ navItems,allCartData }) => {
 //  setAllCardData(data)
 
 // }
+const [toggler,setToggler] = useState(false)
 
+
+const handleCartClick=(evt)=>{
+  evt.preventDefault()
+  setToggler(!toggler)
+  console.log('clicked')
+
+
+}
+console.log(toggler)
 
   return (
     <div>
@@ -30,7 +40,16 @@ const Navbar = ({ navItems,allCartData }) => {
             
           );
         })}
-        <Cart allCartData={allCartData}  />
+
+        <form action="#">
+        <Cart toggler={toggler}  allCartData={allCartData}>
+         
+         </Cart> 
+
+           
+        <button onClick={handleCartClick}>Show Items</button>
+        </form>
+       
         
       </div>
       

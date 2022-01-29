@@ -36,10 +36,10 @@ setAllCartData(evt)
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/home/suits" element = {<Suites liftingCartHandler={liftingCartHandler}/>}/>
-        <Route path="/home/MensShoe" element = {<Suites/>}/>
-        <Route path="/home/WomenShoe" element = {<Suites/>}/>
-        <Route path="/home/mens" element = {<Suites/>}/>
-        <Route path="/home/womens" element = {<Suites/>}/>
+        <Route path="/home/MensShoe" element = {<Suites liftingCartHandler={liftingCartHandler}/>}/>
+        <Route path="/home/WomenShoe" element = {<Suites liftingCartHandler={liftingCartHandler}/>}/>
+        <Route path="/home/mens" element = {<Suites liftingCartHandler={liftingCartHandler}/>}/>
+        <Route path="/home/womens" element = {<Suites liftingCartHandler={liftingCartHandler}/>}/>
       </Routes>
     </div>
   );
