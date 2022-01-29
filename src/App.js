@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import Suites from "./pages/Suits/Suits";
 
+
 function App() {
+  const [allCartData,setAllCartData]=useState([])
 
   const [navItems] = useState([
     {
@@ -22,7 +24,7 @@ function App() {
     },
   ]);
 
-  const [allCartData,setAllCartData]=useState([])
+
 
 const liftingCartHandler=(evt)=>{
 console.log(evt)
