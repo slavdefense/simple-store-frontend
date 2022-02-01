@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Cart.module.css";
-const Cart = ({ allCartData, toggler }) => {
+import Modal from "../../UI/Modal";
+const Cart = ({ allCartData, toggler,handleCartClick }) => {
   console.log(allCartData);
 
   console.log(allCartData);
@@ -40,11 +41,14 @@ const Cart = ({ allCartData, toggler }) => {
   console.log(itemTotal);
 
   return (
-    <div className="cartContainer">
-      {toggler ? (
-        <div className={styles.toggler}>
-          <p>Checkout</p>
-          {itemTotal
+
+
+  
+<>
+
+{toggler? <Modal>
+
+  {itemTotal
             .filter((item) => item.Total !== 0)
             .map((item) => {
               return (
@@ -53,12 +57,52 @@ const Cart = ({ allCartData, toggler }) => {
                 </h5>
               );
             })}
-          <h3 className={styles.sumtotal}>Your total is ${total}</h3>
-        </div>
-      ) : (
-        <h1>Cart</h1>
-      )}
-    </div>
+
+<h3 className={styles.sumtotal}>Your total is ${total}</h3>
+
+
+
+<button onClick={handleCartClick}>Close</button>
+  
+</Modal>:''
+}
+
+
+
+
+
+
+
+</>
+   
+    //    <div className="cartContainer">
+    //   {toggler ? (
+    //     <div className={styles.toggler}>
+    //       <p>Checkout</p>
+
+        
+
+
+
+    //       {itemTotal
+    //         .filter((item) => item.Total !== 0)
+    //         .map((item) => {
+    //           return (
+    //             <h5>
+    //               {item} {item.price}:
+    //             </h5>
+    //           );
+    //         })}
+    //       <h3 className={styles.sumtotal}>Your total is ${total}</h3>
+    //     </div>
+    //   ) : (
+    //     <h1>Cart</h1>
+    //   )}
+    // </div>
+
+   
+
+   
   );
 };
 

@@ -16,6 +16,7 @@ function App() {
   ]);
 
   const liftingCartHandler = (evt) => {
+   
     console.log(evt);
     setAllCartData(evt);
   };

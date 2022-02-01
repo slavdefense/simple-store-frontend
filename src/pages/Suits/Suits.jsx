@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./Suits.module.css";
 
+
 const Suites = ({liftingCartHandler}) => {
   const location = useLocation();
   console.log(location)
 
   const [shoppingList] = useState(location.state.items);
   const [cartItems, setCartItems] = useState({
-    name:'start',
+    name:'',
     price:0
   });
 
@@ -47,6 +48,12 @@ const Suites = ({liftingCartHandler}) => {
               >
                 Add to cart
               </button>
+              <form action="">
+
+                <label>Quantity</label>
+              <input type="number" min="1" defaultValue="1"></input>
+              </form>
+              
             </div>
           );
         })}
