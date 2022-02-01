@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Cart.module.css";
 import Modal from "../../UI/Modal";
-const Cart = ({ allCartData, toggler,handleCartClick }) => {
-  console.log(allCartData);
-
-  console.log(allCartData);
+const Cart = ({ allCartData, toggler,handleCartClick,numberOfCartItems }) => {
+  console.log(numberOfCartItems)
 
   const [total, setTotal] = useState(0);
   const [itemTotal, setItemTotal] = useState([]);
@@ -58,7 +56,7 @@ const Cart = ({ allCartData, toggler,handleCartClick }) => {
               );
             })}
 
-<h3 className={styles.sumtotal}>Your total is ${total}</h3>
+<h3 className={styles.sumtotal}>Your total is ${numberOfCartItems.totalAmount}</h3>
 
 
 

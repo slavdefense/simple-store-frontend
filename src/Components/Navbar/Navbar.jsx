@@ -2,8 +2,20 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import Cart from "../Cart/Cart";
+import { useContext } from "react";
+import CartContext from "../../Store/cart-context";
 
 const Navbar = ({ navItems, allCartData }) => {
+
+  const cartCtx =  useContext(CartContext)
+
+   const numberOfCartItems = cartCtx.items.reduce((current,item)=>{
+     return current+item
+   },0)
+  
+
+  
+
   const [toggler, setToggler] = useState(false);
 
   const handleCartClick = (evt) => {
@@ -12,6 +24,8 @@ const Navbar = ({ navItems, allCartData }) => {
     console.log("clicked");
   };
   console.log(toggler);
+
+  
 
   return (
     <div className={styles.navbarcontainer}>
@@ -28,7 +42,10 @@ const Navbar = ({ navItems, allCartData }) => {
         })}
 
         <form action="#">
-          <Cart handleCartClick={handleCartClick} toggler={toggler} allCartData={allCartData}></Cart>
+          <Cart handleCartClick={handleCartClick} toggler={toggler} allCartData={allCartData}
+          numberOfCartItems={numberOfCartItems}
+          
+          ></Cart>
 
           {!toggler ? (
             <button className={styles.showcartbutton} onClick={handleCartClick}>
