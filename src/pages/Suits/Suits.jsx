@@ -13,15 +13,15 @@ const Suites = ({liftingCartHandler}) => {
 
   const cartCtx = useContext(CartContext)
 
-const clickHandler=(price,name,idx)=>{
+  console.log(cartCtx)
 
-
+const clickHandler=(price,name,id)=>{
 
 cartCtx.addItems({
-  // id:amountInputRef.id,
-  id:idx,
+  
   price: price,
-  name:name
+  name:name,
+  id:id
   
 })
 
@@ -38,15 +38,10 @@ cartCtx.addItems({
   useEffect(() => {
     setAllCartItems([...allCartItems, { price: cartItems.price,name:cartItems.name }]);
     liftingCartHandler(allCartItems)
-
-   
   }, [cartItems]);
 
   console.log(allCartItems);
 
-  // const clickHandler = (price,name) => {
-  //   setCartItems({price:price,name:name});
-  // };
 
   return (
     <div>
@@ -55,7 +50,7 @@ cartCtx.addItems({
       <section className={styles.containerSuits}>
         {shoppingList.map((item,idx) => {
           return (
-            <div className={styles.containerdiv}>
+            <div key={item.id} className={styles.containerdiv}>
               <h1>
                 {item.name} {item.price}
               </h1>
@@ -64,7 +59,7 @@ cartCtx.addItems({
 
               <button className={styles.buttonhover}
                 onClick={() => {
-                  clickHandler(item.price,item.name,item.idx);
+                  clickHandler(item.price,item.name,item.id);
 
                 }}
               >
